@@ -16,7 +16,6 @@ module.exports = class fetchall {
 			// if only /fetchall is typed in.
 			if (args.length == 0)
 			{
-				console.log("lololol");
 				try {
 					for(const pl of Omegga.players) {
 						Omegga.writeln('Chat.Command /tp ' + '"' +  pl.name + '"' + '"' + name + '"' );
@@ -27,7 +26,6 @@ module.exports = class fetchall {
 			// if a player is specified in /fetchall, e.g. /fetchall Kaje
 			else if(args.length > 0)
 			{
-				console.log("lololol2");
 				try {
 					for(const pl of Omegga.players) {
 						Omegga.writeln('Chat.Command /tp ' + '"' +  pl.name + '"' + '"' + args + '"' );
