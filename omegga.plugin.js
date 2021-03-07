@@ -6,7 +6,7 @@ module.exports = class fetchall {
 		this.store = store;
 	}
 
-	async init() {
+	init() {
 		Omegga
 		.on('cmd:fetchall', async (name, ...args) => {
 			const player = Omegga.getPlayer(name);
@@ -16,25 +16,21 @@ module.exports = class fetchall {
 			// if only /fetchall is typed in.
 			if (args.length == 0)
 			{
-				try {
-					for(const pl of Omegga.players) {
-						Omegga.writeln('Chat.Command /tp ' + '"' +  pl.name + '"' + '"' + name + '"' );
-					}
-				} catch(e) { console.log(e); }
+				for(const pl of Omegga.players) {
+					Omegga.writeln('Chat.Command /tp ' + '"' +  pl.name + '"' + '"' + name + '"' );
+				}
 			}
 
 			// if a player is specified in /fetchall, e.g. /fetchall Kaje
 			else if(args.length > 0)
 			{
-				try {
-					for(const pl of Omegga.players) {
-						Omegga.writeln('Chat.Command /tp ' + '"' +  pl.name + '"' + '"' + args + '"' );
-					}
-				} catch(e) { console.log(e); }
+				for(const pl of Omegga.players) {
+					Omegga.writeln('Chat.Command /tp ' + '"' +  pl.name + '"' + '"' + args + '"' );
+				}
 			}
 		})
 	return {registeredCommands: ['fetchall']};	
 	}
 
-	async stop() { }
+	stop() { }
 }
