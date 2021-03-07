@@ -1,0 +1,19 @@
+{
+  "name": "fetchall",
+  "description": "Teleports all players to you or to a player you specify",
+  "author": "Kaje",
+  "commands": [
+    {
+      "name": "/fetchall",
+      "description": "Teleports all players to you or to a player you specify",
+      "example": "/fetchall [optional: playername]",
+      "args": [ 
+        {
+          "name": "playername",
+          "description": "The name of the player you want all players to teleport to.",
+          "required": false
+        } 
+      ]
+    }
+  ]
+}
