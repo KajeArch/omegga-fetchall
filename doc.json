@@ -2,6 +2,13 @@
   "name": "fetchall",
   "description": "Teleports all players to you or to a player you specify",
   "author": "Kaje",
+   "config": {
+     "Roles": {
+      "description": "The player roles that can use /fetchall command.",
+      "type": "string",
+      "default": "Admin"
+    }
+  },
   "commands": [
     {
       "name": "/fetchall",
