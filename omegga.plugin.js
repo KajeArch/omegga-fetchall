@@ -1,3 +1,12 @@
+// Look through roles and check whether the player has one of them.
+function isAuthorized(player, rolelist) {
+		for(var roles of rolelist) {
+			if(player.getRoles().some(r => r === roles))
+				return true;
+		}
+		return false;
+	}
+
 module.exports = class fetchall {
 	constructor(omegga, config, store) 
 	{
@@ -10,8 +19,13 @@ module.exports = class fetchall {
 		Omegga
 		.on('cmd:fetchall', async (name, ...args) => {
 			const player = Omegga.getPlayer(name);
-			const isAuthorized = p => p.isHost() || (p.getRoles().includes('Admin'));
-			if (!isAuthorized(player)) return; // you're not an admin, too bad. 
+			// get roles from config. Deletes commas, gets rid of whitespace.
+			var setRoles = this.config["Roles"].split(',').map(role => role.trim());
+			
+			if (!(player.isHost()) && !isAuthorized(player, setRoles)) {
+				Omegga.whisper(name, "You don't have the permission to use this command"); // too bad
+				return;
+			}
 
 			// if only /fetchall is typed in.
 			if (args.length == 0)
